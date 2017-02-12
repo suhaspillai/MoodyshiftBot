@@ -71,6 +71,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'moodyshift.wsgi.application'
 
+STATICFILES_DIRS = (
+    '/Users/Loveapril/git/MoodyshiftBot/moodyshift/moodyshift/static',
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
