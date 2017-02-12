@@ -98,7 +98,14 @@
                 <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p> -->
             </div>
         </div>
-        <video autoplay ></video>
+        <!-- <video autoplay ></video> -->
+        <div id="my_camera"></div>
+        <form>
+            <input type=button class="btn btn-success" value="Take Snapshot" onClick="take_snapshot()">
+        </form>
+        <div id="results" class="well">Your captured image will appear here...</div>
+
+ 
     </section>
 
     <!-- Download Section -->
@@ -160,6 +167,7 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
     <!-- Theme JavaScript -->
+    <script src="static/getemotion/js/webcam.min.js"></script>
     <script src="static/getemotion/js/grayscale.js"></script>
 
 </body>

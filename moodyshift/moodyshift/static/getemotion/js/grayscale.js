@@ -30,51 +30,72 @@ $(function() {
 
 });
 
-(function() {
-    'use strict';
-    var video = document.querySelector('video'), canvas;
+// (function() {
+//     'use strict';
+//     var video = document.querySelector('video'), canvas;
 
-    /**
-     *  generates a still frame image from the stream in the <video>
-     *  appends the image to the <body>
-     */
-    function takeSnapshot() {
-      var img = document.querySelector('img') || document.createElement('img');
-      var context;
-      var width = video.offsetWidth
-        , height = video.offsetHeight;
+//     /**
+//      *  generates a still frame image from the stream in the <video>
+//      *  appends the image to the <body>
+//      */
+//     function takeSnapshot() {
+//       var img = document.querySelector('img') || document.createElement('img');
+//       var context;
+//       var width = video.offsetWidth
+//         , height = video.offsetHeight;
 
-      canvas = canvas || document.createElement('canvas');
-      canvas.width = width;
-      canvas.height = height;
+//       canvas = canvas || document.createElement('canvas');
+//       canvas.width = width;
+//       canvas.height = height;
 
-      context = canvas.getContext('2d');
-      context.drawImage(video, 0, 0, width, height);
+//       context = canvas.getContext('2d');
+//       context.drawImage(video, 0, 0, width, height);
 
-      img.src = canvas.toDataURL('image/png');
-      document.body.appendChild(img);
-    }
-    console.log('hello');
-    // use MediaDevices API
-    // docs: https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
-    if (navigator.mediaDevices) {
-      // access the web cam
-      console.log('ehe')
-      navigator.mediaDevices.getUserMedia({video: true})
-      // permission granted:
-        .then(function(stream) {
-          video.src = window.URL.createObjectURL(stream);
-          video.addEventListener('click', takeSnapshot);
-        })
-        // permission denied:
-        .catch(function(error) {
-          document.body.textContent = 'Could not access the camera. Error: ' + error.name;
-        });
-    }
+//       img.src = canvas.toDataURL('image/png');
+//       document.body.appendChild(img);
+//     }
+//     console.log('hello');
+//     // use MediaDevices API
+//     // docs: https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
+//     if (navigator.mediaDevices) {
+//       // access the web cam
+//       console.log('ehe')
+//       navigator.mediaDevices.getUserMedia({video: true})
+//       // permission granted:
+//         .then(function(stream) {
+//           video.src = window.URL.createObjectURL(stream);
+//           video.addEventListener('click', takeSnapshot);
+//         })
+//         // permission denied:
+//         .catch(function(error) {
+//           document.body.textContent = 'Could not access the camera. Error: ' + error.name;
+//         });
+//     }
     
 
 
-  })();
+  // })();
+
+
+Webcam.set({
+            width: 320,
+            height: 240,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
+Webcam.attach( '#my_camera' );
+function take_snapshot() {
+            // take snapshot and get image data
+    Webcam.snap( function(data_uri) {
+        // display results in page
+        document.getElementById('results').innerHTML = '<h2>Here is your image:</h2>' + '<img src="'+data_uri+'"/>';
+        Webcam.upload( data_uri, 'upload.php', function(code, text) {
+            // Upload complete!
+            // 'code' will be the HTTP response code from the server, e.g. 200
+                                    // 'text' will be the raw response content
+            });
+    } );
+}
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
