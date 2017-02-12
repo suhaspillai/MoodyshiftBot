@@ -1,0 +1,8 @@
+2017.02.11 21:16:23 LOG5[ui]: stunnel 5.40 on x86_64-apple-darwin15.6.0 platform
+2017.02.11 21:16:23 LOG5[ui]: Compiled/running with OpenSSL 1.0.2k  26 Jan 2017
+2017.02.11 21:16:23 LOG5[ui]: Threading:PTHREAD Sockets:POLL,IPv6 TLS:ENGINE,FIPS,OCSP,PSK,SNI
+2017.02.11 21:16:23 LOG5[ui]: Reading configuration from file /Users/Loveapril/git/MoodyshiftBot/moodyshift/stunnel/dev_https
+2017.02.11 21:16:23 LOG5[ui]: UTF-8 byte order mark not detected
+2017.02.11 21:16:23 LOG5[ui]: FIPS mode disabled
+2017.02.11 21:16:23 LOG4[ui]: Insecure file permissions on stunnel/stunnel.pem
+2017.02.11 21:16:23 LOG5[ui]: Configuration successful
