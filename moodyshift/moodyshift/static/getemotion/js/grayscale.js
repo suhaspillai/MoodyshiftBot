@@ -88,8 +88,9 @@ function take_snapshot() {
             // take snapshot and get image data
     Webcam.snap( function(data_uri) {
         // display results in page
+        console.log(data_uri);
         document.getElementById('results').innerHTML = '<h2>Here is your image:</h2>' + '<img src="'+data_uri+'"/>';
-        Webcam.upload( data_uri, 'upload.php', function(code, text) {
+        Webcam.upload( data_uri, '/list/', function(code, text) {
             // Upload complete!
             // 'code' will be the HTTP response code from the server, e.g. 200
                                     // 'text' will be the raw response content
